@@ -35,3 +35,36 @@ int main() {
                     printf(">> Capacidade maxima de 100 encomendas atingida!\n");
                 }
                 break; 
+ case 2:
+                if (qtd_encomendas == 0) {
+                    printf("\n>> Nenhuma encomenda registrada no momento.\n");
+                } else {
+                    printf("\n========================================\n");
+                    printf("       ENCOMENDAS REGISTRADAS           \n");
+                    printf("========================================\n");
+                    int i = 0;
+                    while (i < qtd_encomendas) {
+                        printf("ID %d | Valor: R$ %.2f\n", i, precos_encomendas[i]);
+                        i++;
+                    }
+                }
+                break;
+
+            case 3:
+                if (qtd_encomendas == 0) {
+                    printf("\n>> Nao ha encomendas para atualizar.\n");
+                } else {
+                    int id_busca;
+                    printf("\n[ATUALIZAR VALOR]\n");
+                    printf("Digite o ID da encomenda que deseja alterar: ");
+                    scanf("%d", &id_busca);
+
+                    if (id_busca >= 0 && id_busca < qtd_encomendas) {
+                        printf("Digite o novo valor para a encomenda ID %d: R$ ", id_busca);
+                        scanf("%f", &precos_encomendas[id_busca]);
+                        printf(">> Valor da encomenda atualizado com sucesso!\n");
+                    } else {
+                        printf(">> Erro: ID de encomenda nao encontrado.\n");
+                    }
+                }
+                break;
