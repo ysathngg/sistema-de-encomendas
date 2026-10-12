@@ -68,3 +68,39 @@ int main() {
                     }
                 }
                 break;
+                
+                case 4:
+                if (qtd_encomendas == 0) {
+                    printf("\n>> Nao ha encomendas para remover.\n");
+                } else {
+                    int id_busca;
+                    printf("\n[REMOVER ENCOMENDA]\n");
+                    printf("Digite o ID da encomenda que deseja cancelar: ");
+                    scanf("%d", &id_busca);
+
+                    if (id_busca >= 0 && id_busca < qtd_encomendas) {
+                        int i = id_busca;
+                        while (i < qtd_encomendas - 1) {
+                            precos_encomendas[i] = precos_encomendas[i + 1];
+                            i++;
+                        }
+                        qtd_encomendas--;
+                        printf(">> Encomenda ID %d removida do sistema.\n", id_busca);
+                    } else {
+                        printf(">> Erro: ID de encomenda nao encontrado.\n");
+                    }
+                }
+                break;
+
+            case 5:
+                printf("\nEncerrando o sistema do Atelie Ysa Personalizados... Ate breve!\n");
+                break;
+
+            default:
+                printf("\n>> Opcao invalida! Escolha um numero de 1 a 5.\n");
+                break;
+        }
+    }
+
+    return 0;
+}
